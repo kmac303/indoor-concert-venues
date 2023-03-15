@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function NewVenueForm({data, setData}) {
+function NewVenueForm({locations, setLocations}) {
+    const [l, setL] = useState({
+        venues: []
+      });
     const [name, setName] = useState(""); 
     const [description, setDescription] = useState(""); 
     const [image_url, setImage_url] = useState(<img src=""/>); 
@@ -9,13 +12,15 @@ function NewVenueForm({data, setData}) {
     const [capacity, setCapacity] = useState("");
     const history = useHistory();
 
+    
+
     function handleSubmit(e) {
         e.preventDefault();
-        const formData = ({name, location, description, image_url});
+        const formData = ({name, location, description, image_url, capacity});
 ////creates a new array that has all venues in it along with the new venue. Then the setVenues function is called with the new array of venues
         function handleAddVenue(newVenue) {
-            const updatedVenuesArray = [newVenue, ...data.venues];
-            setData(updatedVenuesArray);
+            const updatedVenuesArray = [newVenue, ...locations.venues];
+            setLocations(updatedVenuesArray);
           }
     //fetch request sending a body of formData that we set up
     fetch("http://localhost:9292/venues", {

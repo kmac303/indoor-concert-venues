@@ -17,7 +17,7 @@ function Location({locations}) {
    
 
       const venueObj = location.venues.map(venue => (
-          <ul skey={venue.id}>
+          <ul key={venue.id}>
             <Card style={{ width: '50rem' }}>
               <Card.Img variant="top" src={venue.image_url} />
                 <Card.Title><h2>{venue.name}</h2></Card.Title>

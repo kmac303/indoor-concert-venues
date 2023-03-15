@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import Header from './Header';
 import VenueContainer from './VenueContainer';
 import LocationContainer from './LocationContainer';
-import LocationCard from './LocationCard';
+// import LocationCard from './LocationCard';
 import Location from './Location';
 import About from './About';
 import NewVenueForm from './NewVenueForm';
@@ -14,8 +14,8 @@ import Home from './Home';
 
 function App() {
 
-  const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
+  // const [data, setData] = useState([]);
+  // const [search, setSearch] = useState("");
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -36,19 +36,19 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/locations">
-          <LocationContainer locations={locations} search={search} setSearch={setSearch}/>
+          <LocationContainer locations={locations}/>
           </Route>
           <Route path="/venues/new">
-            <NewVenueForm data={data} setData={setData}/>
+            <NewVenueForm locations={locations} setLocations={setLocations}/>
           </Route>
           <Route exact path="/locations/new">
             <NewLocationForm2 locations={locations} setLocations={setLocations}/>
           </Route>
           <Route path="/locations/:id">
-            <Location locations={locations} search={search} setSearch={setSearch}/>
+            <Location locations={locations}/>
           </Route>
           {/* <Route path="/venues">
-          <VenueContainer venues={locations.venues} setLocations={setLocations} search={search} setSearch={setSearch}/>
+          <VenueContainer locations={locations} setLocations={setLocations} search={search} setSearch={setSearch}/>
           </Route> */}
           <Route path="/about">
             <About />
