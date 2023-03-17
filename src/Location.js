@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import Card from 'react-bootstrap/Card';
-import Search from "./Search";
 import { useParams } from "react-router-dom";
 
 function Location({locations}) {
@@ -15,6 +14,7 @@ function Location({locations}) {
         setLocation(locationObj);
       }}, [locations]); 
    
+      console.log(location);
 
       const venueObj = location.venues.map(venue => (
           <ul key={venue.id}>

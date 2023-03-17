@@ -3,19 +3,17 @@ import {Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './NavBar';
 import Header from './Header';
-import VenueContainer from './VenueContainer';
+// import VenueContainer from './VenueContainer';
 import LocationContainer from './LocationContainer';
 // import LocationCard from './LocationCard';
 import Location from './Location';
 import About from './About';
 import NewVenueForm from './NewVenueForm';
-import NewLocationForm2 from './NewLocationForm2';
+import NewLocationForm from './NewLocationForm';
 import Home from './Home';
 
 function App() {
-
-  // const [data, setData] = useState([]);
-  // const [search, setSearch] = useState("");
+  
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -42,7 +40,7 @@ function App() {
             <NewVenueForm locations={locations} setLocations={setLocations}/>
           </Route>
           <Route exact path="/locations/new">
-            <NewLocationForm2 locations={locations} setLocations={setLocations}/>
+            <NewLocationForm locations={locations} setLocations={setLocations}/>
           </Route>
           <Route path="/locations/:id">
             <Location locations={locations}/>

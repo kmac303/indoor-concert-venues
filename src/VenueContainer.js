@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
-import Search from "./Search";
+import React from "react";
 import VenueCard from "./VenueCard";
+
 //this component is where we store our venues
 function VenueContainer({locations, setLocations, search, setSearch}) {
 
