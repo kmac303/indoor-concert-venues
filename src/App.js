@@ -10,6 +10,7 @@ import Location from './Location';
 import About from './About';
 import NewVenueForm from './NewVenueForm';
 import NewLocationForm from './NewLocationForm';
+import EditVenue from './EditVenue';
 import Home from './Home';
 
 function App() {
@@ -43,7 +44,10 @@ function App() {
             <NewLocationForm locations={locations} setLocations={setLocations}/>
           </Route>
           <Route path="/locations/:id">
-            <Location locations={locations}/>
+            <Location locations={locations} setLocations={setLocations}/>
+          </Route>
+          <Route path="/venues/:id/edit">
+            <EditVenue />
           </Route>
           {/* <Route path="/venues">
           <VenueContainer locations={locations} setLocations={setLocations} search={search} setSearch={setSearch}/>

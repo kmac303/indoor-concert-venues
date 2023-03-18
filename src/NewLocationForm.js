@@ -51,7 +51,6 @@ const NewLocationForm = () => {
       <label>
         City:
         <input
-          readonly="readonly"
           type="text"
           name="city"
           value={formData.city}
@@ -61,6 +60,7 @@ const NewLocationForm = () => {
       <label>
         State:
         <input
+          readonly="readonly"
           type="text"
           name="state"
           value={formData.state}
