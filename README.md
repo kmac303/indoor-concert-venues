@@ -22,3 +22,5 @@ Created by Kevin McIntosh for the Flatiron School Software Engineer Flex Program
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Some components utilize React Bootstrap (https://react-bootstrap.netlify.app/).
+
+This project is designed to work with the back-end Ruby application found here: https://github.com/kmac303/phase-3-sinatra-react-project
