@@ -1,7 +1,6 @@
 import React from "react";
 import LocationCard from "./LocationCard";
 
-//this component is where we store our locations
 function LocationContainer({locations}) {
 
       const locationCards = locations.map(location => {

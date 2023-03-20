@@ -12,7 +12,6 @@ import EditVenue from './EditVenue';
 import Home from './Home';
 
 function App() {
-  
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -22,9 +21,7 @@ function App() {
   }, []); 
 
   return (
-    <div 
-    className={"App light"}
-    >
+    <div className={"App"}>
       <NavBar />
       <Header />
       <br />

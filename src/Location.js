@@ -39,7 +39,7 @@ function Location({locations}) {
                 <Card.Text>{venue.description}</Card.Text>
                 <Card.Text>Capacity: {venue.capacity}</Card.Text>
             </Card>
-            <Link to={{pathname: "/venues/:id/edit", state: venue}}><button>Edit</button></Link>
+            <Link to={{pathname: `/venues/${venue.id}/edit`, state: venue}}><button>Edit</button></Link>
             <button value={venue.id} onClick={handleDeleteClick}>Delete Venue</button>
             <p />
           </div>  

@@ -16,7 +16,7 @@ If you think a venue or location is missing, you can add your own using the Add 
 
 ## License
 
-Created by Kevin McIntosh for the Flatiron School Software Engineer Flex Program.
+Created by Kevin McIntosh for the Flatiron School Software Engineer Flex Program Phase 3 Project.
 
 ## Creation
 

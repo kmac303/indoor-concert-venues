@@ -11,7 +11,6 @@ function NewVenueForm({locations, setLocations}) {
     location_id: 1
   });
 
-
   const cityObj = locations.map((l) => {
     return <option key={l.city} value={l.id}>
             {l.city}
