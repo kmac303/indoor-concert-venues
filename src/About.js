@@ -9,7 +9,7 @@ function About() {
             <p>
             This Application is designed to give insight into the various wonderful indoor concert venues in the state of Colorado.
                 <br />
-            This Single Page Application was created by Kevin McIntosh for the Flatiron School Software Engineer Flex Program.
+            This Application was created by Kevin McIntosh for the Flatiron School Software Engineer Flex Program.
             </p>
         </div>
     )
