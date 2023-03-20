@@ -8,8 +8,6 @@ function NavBar() {
             <br/>
             <NavLink exact to="/locations">Locations</NavLink>
             <br/>
-            {/* <NavLink to="/venues">All Venues</NavLink>
-            <br/> */}
             <NavLink to="/venues/new">Add Venue</NavLink>
             <br/>
             <NavLink exact to="/locations/new">Add Location</NavLink>

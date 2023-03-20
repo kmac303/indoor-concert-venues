@@ -3,9 +3,7 @@ import {Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './NavBar';
 import Header from './Header';
-// import VenueContainer from './VenueContainer';
 import LocationContainer from './LocationContainer';
-// import LocationCard from './LocationCard';
 import Location from './Location';
 import About from './About';
 import NewVenueForm from './NewVenueForm';
@@ -49,9 +47,6 @@ function App() {
           <Route path="/venues/:id/edit">
             <EditVenue />
           </Route>
-          {/* <Route path="/venues">
-          <VenueContainer locations={locations} setLocations={setLocations} search={search} setSearch={setSearch}/>
-          </Route> */}
           <Route path="/about">
             <About />
           </Route>

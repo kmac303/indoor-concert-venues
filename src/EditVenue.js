@@ -12,7 +12,6 @@ function EditVenue() {
     capacity: venue.capacity,   
   });
 
-
   const handleInputChange = (event) => {
     console.log(event);
     setFormData({
@@ -38,7 +37,6 @@ function EditVenue() {
       .catch(error => console.error(error));
   };
   
-  
     return ( 
         <div>
         <form onSubmit={handleSubmit}>
@@ -51,6 +49,7 @@ function EditVenue() {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <label>
         Description:
         <input
@@ -60,6 +59,7 @@ function EditVenue() {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <label>
         Capacity:
         <input
@@ -69,6 +69,7 @@ function EditVenue() {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <button type="submit">Update Venue</button>
     </form>
         </div>

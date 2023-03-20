@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 
 function NewVenueForm({locations, setLocations}) {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -8,18 +10,7 @@ function NewVenueForm({locations, setLocations}) {
     capacity: '',   
     location_id: 1
   });
-  // const [location, setLocation] = useState([]);
 
-  // useEffect(() => {
-  //   const locationObj = locations.map(l => l.city)
-  //   if (locationObj){
-  //     setLocations(locationObj);
-  //   }}, [locations]);
-
-    // console.log(location);
-
-//remove ul
-//check elements (next to console) to see what elements are being created on page. location_id needs to be changed
 
   const cityObj = locations.map((l) => {
     return <option key={l.city} value={l.id}>
@@ -29,7 +20,6 @@ function NewVenueForm({locations, setLocations}) {
  )
 
   const handleInputChange = (event) => {
-    console.log(event);
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
@@ -48,7 +38,7 @@ function NewVenueForm({locations, setLocations}) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        history.push(`/locations/${formData.location_id}`)
       })
       .catch(error => console.error(error));
   };
@@ -64,6 +54,7 @@ function NewVenueForm({locations, setLocations}) {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <label>
         Description:
         <input
@@ -73,6 +64,7 @@ function NewVenueForm({locations, setLocations}) {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <label>
         Image URL:
         <input
@@ -82,6 +74,7 @@ function NewVenueForm({locations, setLocations}) {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <label>
         Capacity:
         <input
@@ -91,6 +84,7 @@ function NewVenueForm({locations, setLocations}) {
           onChange={handleInputChange}
         />
       </label>
+      <br />
       <label>
         City:
         <select
