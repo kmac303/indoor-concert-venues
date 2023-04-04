@@ -2,8 +2,16 @@ import React from "react";
 import LocationCard from "./LocationCard";
 
 function LocationContainer({locations}) {
-
-      const locationCards = locations.map(location => {
+  let sortedLocations = locations.sort(function (a, b) {
+    if (a.city < b.city) {
+      return -1;
+    }
+    if (a.city > b.city) {
+      return 1;
+    }
+    return 0;
+  });
+      const locationCards = sortedLocations.map(location => {
         return <LocationCard 
           key={location.id} 
           location={location} 

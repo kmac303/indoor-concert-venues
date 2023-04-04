@@ -14,6 +14,7 @@ import Home from './Home';
 function App() {
   const [locations, setLocations] = useState([]);
 
+  //fetching locations data
   useEffect(() => {
     fetch("http://localhost:9292/locations")
       .then((r) => r.json())
@@ -42,7 +43,7 @@ function App() {
             <Location locations={locations} setLocations={setLocations}/>
           </Route>
           <Route path="/venues/:id/edit">
-            <EditVenue />
+            <EditVenue locations={locations} setLocations={setLocations}/>
           </Route>
           <Route path="/about">
             <About />

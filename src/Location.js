@@ -8,6 +8,16 @@ function Location({locations}) {
       venues: []
     });
 
+    let sortedVenues = location.venues.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+
     useEffect(() => {
       const locationObj = locations.find(l => l.id == id)
       if (locationObj){
@@ -18,18 +28,12 @@ function Location({locations}) {
         fetch(`http://localhost:9292/venues/${event.target.value}`, {
           method: "DELETE",
         })
-          .then((r) => r.json())
           .then(setLocation({ ...location, venues: location.venues.filter(v => v.id != event.target.value)}))
       }
 
-      const cityObj = locations.map((l) => {
-        return <option key={l.city} value={l.id}>
-                {l.city}
-                </option>
-      }
-     )
+
     
-      const venueObj = location.venues.map(venue => {
+      const venueObj = sortedVenues.map(venue => {
       
        return (
           <div key={venue.id}>

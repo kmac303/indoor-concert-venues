@@ -25,9 +25,18 @@ function NewVenueForm({locations, setLocations}) {
     });
   };
 
+  function handleAddVenue(newVenue, locationId) {
+    let location = locations.find(l => l.id === parseInt(locationId))
+    console.log(location);
+    // debugger;
+    location.venues = [...location.venues, newVenue];
+    let newLocations = locations.map(l => l.id === parseInt(locationId) ? location : l)
+    console.log(newLocations);
+    setLocations(newLocations);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     fetch('http://localhost:9292/venues', {
       method: 'POST',
       headers: {
@@ -36,7 +45,8 @@ function NewVenueForm({locations, setLocations}) {
       body: JSON.stringify(formData)
     })
       .then(response => response.json())
-      .then(data => {
+      .then(newVenue => {
+        handleAddVenue(newVenue, formData.location_id)
         history.push(`/locations/${formData.location_id}`)
       })
       .catch(error => console.error(error));

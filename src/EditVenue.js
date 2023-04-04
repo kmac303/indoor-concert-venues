@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useLocation, useHistory } from 'react-router-dom';
 
-function EditVenue() {
+function EditVenue({locations, setLocations}) {
 
   const location = useLocation()
   const history = useHistory();
@@ -13,16 +13,22 @@ function EditVenue() {
   });
 
   const handleInputChange = (event) => {
-    console.log(event);
     setFormData({
       ...formData,
       [event.target.name]: event.target.value
     });
   };
 
+  function handleEditVenue(venue, locationId) {
+    let location = locations.find(l => l.id === locationId)
+    let newVenues = location.venues.map(v => v.id === venue.id ? venue : v)
+    location.venues = newVenues;
+    let newLocations = locations.map(l => l.id === locationId ? location : l)
+    setLocations(newLocations);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     fetch(`http://localhost:9292/venues/${venue.id}`, {
       method: 'PATCH',
       headers: {
@@ -32,6 +38,7 @@ function EditVenue() {
     })
       .then(response => response.json())
       .then(data => {
+        handleEditVenue(data, venue.location_id)
         history.push(`/locations/${venue.location_id}`)
       })
       .catch(error => console.error(error));

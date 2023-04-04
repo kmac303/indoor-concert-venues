@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
 
-const NewLocationForm = () => {
+const NewLocationForm = ({locations, setLocations}) => {
   const history = useHistory();
   const [formData, setFormData] = useState({
     city: '',
@@ -16,6 +16,11 @@ const NewLocationForm = () => {
     });
   };
 
+  function handleAddLocation(newLocation) {
+    const updatedLocationsArray = [...locations, newLocation];
+    setLocations(updatedLocationsArray);
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:9292/locations', {
@@ -26,7 +31,8 @@ const NewLocationForm = () => {
       body: JSON.stringify(formData)
     })
       .then(response => response.json())
-      .then(data => {
+      .then(newLocation => {
+        handleAddLocation(newLocation);
         history.push(`/locations`)
       })
       .catch(error => console.error(error));
@@ -47,7 +53,7 @@ const NewLocationForm = () => {
       <label>
         State:
         <input
-          readonly="readonly"
+          readOnly="readOnly"
           type="text"
           name="state"
           value={formData.state}
